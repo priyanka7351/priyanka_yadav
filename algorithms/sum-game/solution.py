@@ -1,9 +1,28 @@
 class Solution:
-    def isPalindromic(self, s: str) -> bool:
-        b="".join(f"{ord(c):08b}" for c in s)
-        return b==b[::-1]
+    def sumGame(self, num: str) -> bool:
         
-                
+        n = len(num)
         
+        left_sum = 0
+        right_sum = 0
+        left_q = 0
+        right_q = 0
         
+        # Left half
+        for i in range(n // 2):
+            if num[i] == '?':
+                left_q += 1
+            else:
+                left_sum += int(num[i])
+        
+        # Right half
+        for i in range(n // 2, n):
+            if num[i] == '?':
+                right_q += 1
+            else:
+                right_sum += int(num[i])
+        
+        if (left_q + right_q) % 2 == 1:
+            return True
+        return 2 * (left_sum - right_sum) != 9 * (right_q - left_q)
         
