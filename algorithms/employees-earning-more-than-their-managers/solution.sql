@@ -1,7 +1,6 @@
-# Write your MySQL query statement
-SELECT p.firstName, p.lastName, a.city, a.state
-FROM Person AS p
-LEFT JOIN Address AS a
-ON p.personID = a.personID;
-
-
+# Write your MySQL query statement below
+SELECT e1.name AS Employee
+FROM Employee e1
+JOIN Employee e2
+ON e1.managerId = e2.id
+WHERE e1.salary > e2.salary;
