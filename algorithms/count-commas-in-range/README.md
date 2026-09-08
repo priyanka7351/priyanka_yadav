@@ -2,7 +2,7 @@
 
 **Difficulty:** Easy
 
-**Language:** Python3
+**Language:** Java
 
 ## Problem
 
