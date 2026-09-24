@@ -1,34 +1,25 @@
 class Solution {
-    public long[] resultArray(int[] nums, int k) {
+    public int smallestIndex(int[] nums) {
+        
 
-        long[] ans = new long[k];
-        long[] dp = new long[k];
+        for (int i = 0; i < nums.length; i++) {
 
-        for (int num : nums) {
+            int n = nums[i];
+            int sum = 0;
 
-            long[] newDp = new long[k];
-
-            // Start a new subarray with current element
-            int rem = num % k;
-            newDp[rem]++;
-
-            // Extend all previous subarrays
-            for (int r = 0; r < k; r++) {
-
-                if (dp[r] > 0) {
-                    int newRem = (r * rem) % k;
-                    newDp[newRem] += dp[r];
-                }
+            while (n > 0) {
+                int digit = n % 10;
+                sum += digit;
+                n = n / 10;
             }
 
-            // Add current subarrays to answer
-            for (int r = 0; r < k; r++) {
-                ans[r] += newDp[r];
+            if (sum == i) {
+                return i;
             }
+        }
 
-            dp = newDp;
-        }  // ← Missing bracket was here
-
-        return ans;
+        return -1;
+    
+        
     }
 }
