@@ -1,7 +1,8 @@
 class Solution:
-    def reverseString(self, s: list[str]) -> None:
-        return s.reverse()
-        """
-        Do not return anything, modify s in-place instead.
-        """
+    def isPalindrome(self, s: str) -> bool:
+        m=""
         
+        for i in s:
+            if i.isalnum():
+                m+=i.lower()
+        return m==m[::-1]
