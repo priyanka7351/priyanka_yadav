@@ -1,16 +1,10 @@
 class Solution:
-    def maxDepth(self, s: str) -> int:
+    def largestOddNumber(self, num: str) -> str:
         
-        depth = 0
-        max_depth = 0
+        for i in range(len(num) - 1, -1, -1):
+            if int(num[i]) % 2 != 0:
+                return num[:i + 1]
+        return ""
 
-        for ch in s:
-            if ch == '(':
-                depth += 1
-                max_depth = max(max_depth, depth)
 
-            elif ch == ')':
-                depth -= 1
-
-        return max_depth
         
